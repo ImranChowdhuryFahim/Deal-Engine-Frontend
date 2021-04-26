@@ -4,8 +4,19 @@
 }
 
 .searchBarContainer {
-  margin-top: 50px;
+  height: 10vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.productCardContainer {
+  padding: 20px;
+  margin: 20px;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  flex-direction: column;
 }
