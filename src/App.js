@@ -51,7 +51,7 @@ class App extends Component {
                     key={i}
                     productLink={prod.href}
                     productName={prod.title}
-                    productPrice={prod.price}
+                    productPrice={"$" + prod.price}
                     productImage={prod.image}
                     websiteName={prod.websiteName}
                   ></Card>
