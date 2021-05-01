@@ -43,18 +43,20 @@ class App extends Component {
         </div>
         <div className="productCardContainer">
           {!this.state.loading && this.state.data != null ? (
-            this.state.data.map((prod, i) => {
-              return (
-                <Card
-                  key={i}
-                  productLink={prod.href}
-                  productName={prod.title}
-                  productPrice={prod.price}
-                  productImage={prod.image}
-                  websiteName={prod.websiteName}
-                ></Card>
-              );
-            })
+            this.state.data
+              .sort((a, b) => b.price - a.price)
+              .map((prod, i) => {
+                return (
+                  <Card
+                    key={i}
+                    productLink={prod.href}
+                    productName={prod.title}
+                    productPrice={prod.price}
+                    productImage={prod.image}
+                    websiteName={prod.websiteName}
+                  ></Card>
+                );
+              })
           ) : this.state.loading ? (
             <div>loading....</div>
           ) : (
