@@ -15,7 +15,7 @@ class Card extends Component {
           </a>
         </div>
         <div className="ProductDetails">
-          <h4>{this.props.productName}</h4>
+          <h5>{this.props.productName}</h5>
           <p>Price: {this.props.productPrice}</p>
           <p>Website Name: {this.props.websiteName}</p>
         </div>
