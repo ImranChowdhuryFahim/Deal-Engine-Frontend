@@ -7,17 +7,24 @@ class Card extends Component {
       <div className="cardContainer">
         <div className="ProductImage">
           <a href={this.props.productLink}>
-            <img
-              src={this.props.productImage}
-              alt="couldn' load"
-              
-            />
+            <img src={this.props.productImage} alt="couldn' load" />
           </a>
         </div>
         <div className="ProductDetails">
           <h5>{this.props.productName}</h5>
           <p>Price: {this.props.productPrice}</p>
           <p>Website Name: {this.props.websiteName}</p>
+        </div>
+        <div>
+          <button
+            style={{
+              backgroundColor: "#04AA6D",
+              color: "white",
+              fontWeight: "bold",
+            }}
+          >
+            Track
+          </button>
         </div>
       </div>
     );

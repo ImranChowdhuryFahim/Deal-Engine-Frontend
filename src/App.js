@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import myData from "./data.json";
 import "./App.css";
 import Card from "./Card";
 import axios from "axios";
+import myData from "./data.json"
 
 class App extends Component {
   constructor() {
@@ -10,12 +10,14 @@ class App extends Component {
     this.state = {
       loading: false,
       data: null,
+      keyword: null,
     };
   }
 
   handleclick(event) {
     if (event.key === "Enter") {
       this.setState({ loading: true });
+      this.setState({keyword: this.title.value})
       axios
         .get(
           `http://127.0.0.1:8000/deal-search/aus?keyword=${this.title.value}`
@@ -44,6 +46,7 @@ class App extends Component {
         <div className="productCardContainer">
           {!this.state.loading && this.state.data != null ? (
             this.state.data
+              .filter((val)=> val.price!=null && val.title.toLowerCase().includes(this.state.keyword.toLowerCase()))
               .sort((a, b) => b.price - a.price)
               .map((prod, i) => {
                 return (
