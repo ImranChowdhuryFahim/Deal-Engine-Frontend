@@ -1,0 +1,65 @@
+.admin-sidebar {
+  height: 100vh;
+  background-color: rgb(31, 30, 30);
+  width: 280px;
+  /* position: fixed; */
+
+}
+
+.admin-logo{
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    padding-top: 20px;
+    height: 60px;
+    
+}
+
+.functionalities{
+    color: white;
+}
+
+.admin-menues{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    list-style: none;
+
+}
+
+
+.admin-menues>li:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+
+.admin-menues>li a{
+    color: white;
+    text-decoration: none ;
+    display:inline-block;
+    width:100%;
+    padding: 20px;
+ 
+}
+
+
+@media screen and (max-width:768px)
+{
+   .admin-sidebar{
+       display: none;
+   }
+   .admin-menues>li a{
+    padding: 10px;
+}
+
+}
+
+@media screen and (max-width:1020px)
+{
+   .admin-menues>li a{
+    padding: 10px;
+}
+
+}
+

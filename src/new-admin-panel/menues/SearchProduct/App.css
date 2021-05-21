@@ -1,0 +1,22 @@
+
+
+.searchBar {
+  padding: 20px !important;
+  width: 50% !important;
+}
+
+.searchBarContainer {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productCardContainer {
+  margin: 10px;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  overflow-y: auto;
+  flex-direction: column;
+}
