@@ -32,11 +32,11 @@ class Navbar extends Component {
           <Avatar style={{ backgroundColor: "#3f51b5" }}>
             {/* {"IC"} */}
           </Avatar>
-          <div className="dropdown-content1">
+          {/* <div className="dropdown-content1">
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/announcement">Announcements</Link>
             <Link to="/logout">Logout</Link>
-          </div>
+          </div> */}
         </div>
       </div>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 import SearchProduct from './menues/SearchProduct/App';
 import ProductDetails from './menues/ProductDetails/App';
 import Mailbox from './menues/Mailbox/Mailbox';
-import Accesrole from './menues/Access-Role/AccessRole';
+import TrackedProducts from './menues/TrackedProducts/TrackedProducts';
 
 const adminRoutes = [
   {
@@ -18,7 +18,7 @@ const adminRoutes = [
   {
     path: '/admin/tracked_products',
     exact: true,
-    body: () => <Accesrole />,
+    body: () => <TrackedProducts />,
   },
 
   {
