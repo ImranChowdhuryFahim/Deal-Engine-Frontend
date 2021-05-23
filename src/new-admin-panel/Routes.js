@@ -1,28 +1,28 @@
-import React from 'react';
-import SearchProduct from './menues/SearchProduct/App';
-import ProductDetails from './menues/ProductDetails/App';
-import Mailbox from './menues/Mailbox/Mailbox';
-import TrackedProducts from './menues/TrackedProducts/TrackedProducts';
+import React from "react";
+import SearchProduct from "./menues/SearchProduct/App";
+import ProductDetails from "./menues/ProductDetails/App";
+import Mailbox from "./menues/Mailbox/Mailbox";
+import TrackedProducts from "./menues/TrackedProducts/TrackedProducts";
 
 const adminRoutes = [
   {
-    path: '/admin/search_product',
+    path: "/admin/search_product",
     exact: true,
-    body: () => <SearchProduct/>,
+    body: () => <SearchProduct />,
   },
   {
-    path: '/admin/product_details',
+    path: "/admin/product_details",
     exact: true,
     body: () => <ProductDetails />,
   },
   {
-    path: '/admin/tracked_products',
+    path: "/admin/tracked_products",
     exact: true,
     body: () => <TrackedProducts />,
   },
 
   {
-    path: '/admin/mailbox',
+    path: "/admin/mailbox",
     exact: true,
     body: () => <Mailbox />,
   },

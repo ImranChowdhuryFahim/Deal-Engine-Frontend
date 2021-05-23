@@ -21,3 +21,10 @@
     flex-direction: column;
   }
   
+  @media screen and (max-width: 768px) {
+    .searchBar {
+      padding: 20px !important;
+      width: 80% !important;
+    }
+  }
+  

@@ -5,6 +5,7 @@
     padding: 20px;
     position: fixed;
     top:80px;
+    height: 100vh;
     z-index: 10000 !important;
 }
 

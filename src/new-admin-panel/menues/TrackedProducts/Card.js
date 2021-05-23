@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { ContactPhoneSharp } from "@material-ui/icons";
-import { NavLink } from "react-router-dom";
+import { withRouter } from "react-router";
+// import { NavLink } from "react-router-dom";
 
 class Card extends Component {
   state = {
@@ -27,7 +28,8 @@ class Card extends Component {
         </div>
         <div>
 
-          <NavLink to="/admin/product_details" style={{
+        <button
+            style={{
               marginRight: "20px",
               backgroundColor: "#4CAF50",
               border: "none",
@@ -36,14 +38,20 @@ class Card extends Component {
               fontSize: "14px",
               fontWeight: "bold",
               display: "flex",
-              textDecoration: 'none',
-            }}>
-               View Details{" "}
-              </NavLink>{" "}
+            }}
+            onClick={(e) => {
+
+               this.props.history.push(
+                  '/admin/product_details',{productLink: this.props.productLink}
+                );
+              } }
+          >
+            View Details
+          </button>
         </div>
       </div>
     );
   }
 }
 
-export default Card;
+export default withRouter(Card);

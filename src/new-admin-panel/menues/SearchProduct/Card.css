@@ -25,3 +25,22 @@ img {
   align-items: center;
   justify-content: space-between;
 }
+
+@media screen and (max-width:768px)
+{
+
+  .cardContainer{
+    width: 90% !important;
+  }
+  img{
+    width: 80px !important;
+    height: 80px !important;
+  }
+  p {
+    font-size: xx-small !important;
+  }
+  .track{
+    padding: 3px 10px !important;
+    margin-right: 10px !important;
+  }
+}

@@ -61,6 +61,7 @@ class Card extends Component {
               fontWeight: "bold",
               display: "flex",
             }}
+            className={'track'}
             onClick={this.handleTrack.bind(this)}
           >
             {this.state.loading && (

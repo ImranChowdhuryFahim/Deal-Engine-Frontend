@@ -2,8 +2,17 @@ import React from "react";
 import "./App.css";
 import Colors from "./components/Colors";
 import Chart from "./Chart";
+import { withRouter } from "react-router";
 
 class App extends React.Component {
+  componentDidMount()
+  {
+    if(this.props.location.state!=null)
+    {
+      console.log(this.props.location.state.productLink)
+    }
+    
+  }
   state = {
     products: [
       {
@@ -75,4 +84,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);
