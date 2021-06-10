@@ -43,7 +43,7 @@ class App extends Component {
             ref={(c) => (this.title = c)}
             name="title"
             onKeyDown={this.handleclick.bind(this)}
-          ></input>
+          ></input>{" "}
         </div>
         <div className="productCardContainer">
           {!this.state.loading && this.state.data != null ? (

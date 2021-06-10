@@ -14,6 +14,7 @@ import {
   faBullhorn,
   faSearch,
   faServer,
+  faPlusSquare,
   faList,
   faAddressBook,
 } from "@fortawesome/free-solid-svg-icons";
@@ -60,6 +61,13 @@ class Sidebar extends Component {
               {" "}
               <NavLink to="/admin/mailbox" activeStyle={activeStyle}>
                 <FontAwesomeIcon icon={faMailBulk}></FontAwesomeIcon> MailBox{" "}
+              </NavLink>{" "}
+            </li>
+            <li>
+              {" "}
+              <NavLink to="/admin/createproduct" activeStyle={activeStyle}>
+                <FontAwesomeIcon icon={faPlusSquare}></FontAwesomeIcon> Create
+                Product{" "}
               </NavLink>{" "}
             </li>
           </ul>

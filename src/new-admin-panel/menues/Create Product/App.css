@@ -1,0 +1,23 @@
+.createprdcontainer {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+}
+.createProduct {
+  padding: 20px !important;
+  width: 50% !important;
+}
+.addbutton{
+  padding: 1.2%;
+  margin-left: 10px;
+  border-radius: 20%;
+  text-align: center !important;
+  color: rgb(72, 165, 10);
+  background-color:rgb(47, 255, 158);
+  font-weight: bolder;
+  font-size: large;
+}

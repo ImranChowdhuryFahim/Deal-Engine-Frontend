@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import AdminPanel from "./new-admin-panel/App"
+import drop from "./new-admin-panel/menues/SearchProduct/DropDown";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route exact path="/admin/search_product" component={AdminPanel} />
+      {/* <Route exact path="/admin/search" component={drop} /> */}
       <Redirect to="/admin/search_product" />
     </Switch>
   </BrowserRouter>,
