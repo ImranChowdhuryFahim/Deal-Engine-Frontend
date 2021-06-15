@@ -3,6 +3,7 @@ import SearchProduct from "./menues/SearchProduct/App";
 import ProductDetails from "./menues/ProductDetails/App";
 import Mailbox from "./menues/Mailbox/Mailbox";
 import TrackedProducts from "./menues/TrackedProducts/TrackedProducts";
+import CreateProduct from "./menues/Create Product/App";
 
 const adminRoutes = [
   {
@@ -25,6 +26,12 @@ const adminRoutes = [
     path: "/admin/mailbox",
     exact: true,
     body: () => <Mailbox />,
+  },
+
+  {
+    path: "/admin/createproduct",
+    exact: true,
+    body: () => <CreateProduct />,
   },
 ];
 export default adminRoutes;

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { ContactPhoneSharp } from "@material-ui/icons";
+import Drop from "./DropDown";
 
 class Card extends Component {
   state = {
@@ -30,7 +31,7 @@ class Card extends Component {
         date: this.currentDate(),
       })
       .then((res) => {
-        console.log(res);
+        window.alert("successfully added to tracking")
       });
     setTimeout(() => {
       this.setState({ loading: false });
@@ -61,7 +62,7 @@ class Card extends Component {
               fontWeight: "bold",
               display: "flex",
             }}
-            className={'track'}
+            className={"track"}
             onClick={this.handleTrack.bind(this)}
           >
             {this.state.loading && (
@@ -71,7 +72,8 @@ class Card extends Component {
             )}
             {this.state.loading && <span>Please wait</span>}
             {!this.state.loading && <span>Track</span>}
-          </button>
+          </button>{" "}
+          <Drop />
         </div>
       </div>
     );

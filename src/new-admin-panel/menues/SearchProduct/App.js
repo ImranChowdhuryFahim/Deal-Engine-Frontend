@@ -27,7 +27,9 @@ class App extends Component {
         .then((res) => {
           this.setState({ data: res.data.totalProductlist });
           this.setState({ loading: false });
-        });
+        }).catch((err) => {
+          console.log(err)
+        })
     }
   }
 
@@ -43,7 +45,7 @@ class App extends Component {
             ref={(c) => (this.title = c)}
             name="title"
             onKeyDown={this.handleclick.bind(this)}
-          ></input>
+          ></input>{" "}
         </div>
         <div className="productCardContainer">
           {!this.state.loading && this.state.data != null ? (
