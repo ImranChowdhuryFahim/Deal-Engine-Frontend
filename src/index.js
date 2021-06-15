@@ -9,6 +9,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route exact path="/admin/search_product" component={AdminPanel} />
+    
       <Redirect to="/admin/search_product" />
     </Switch>
   </BrowserRouter>,
