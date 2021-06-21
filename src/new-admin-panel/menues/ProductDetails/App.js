@@ -5,13 +5,10 @@ import Chart from "./Chart";
 import { withRouter } from "react-router";
 
 class App extends React.Component {
-  componentDidMount()
-  {
-    if(this.props.location.state!=null)
-    {
-      console.log(this.props.location.state.productLink)
+  componentDidMount() {
+    if (this.props.location.state != null) {
+      console.log(this.props.location.state.productLink);
     }
-    
   }
   state = {
     products: [
@@ -74,7 +71,8 @@ class App extends React.Component {
                 tab={this.handleTab}
                 myRef={this.myRef}
               /> */}
-              <button className="cart">Add to cart</button>
+              <button className="cart">Add</button>
+              <button className="cart2">Delete</button>
             </div>
             <Chart />
           </div>
