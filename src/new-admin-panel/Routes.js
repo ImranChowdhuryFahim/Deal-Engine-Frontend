@@ -1,7 +1,6 @@
 import React from "react";
 import SearchProduct from "./menues/SearchProduct/App";
 import ProductDetails from "./menues/ProductDetails/App";
-import Mailbox from "./menues/Mailbox/Mailbox";
 import TrackedProducts from "./menues/TrackedProducts/TrackedProducts";
 import CreateProduct from "./menues/Create Product/App";
 
@@ -20,12 +19,6 @@ const adminRoutes = [
     path: "/admin/tracked_products",
     exact: true,
     body: () => <TrackedProducts />,
-  },
-
-  {
-    path: "/admin/mailbox",
-    exact: true,
-    body: () => <Mailbox />,
   },
 
   {

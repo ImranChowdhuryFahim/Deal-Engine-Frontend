@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import "./DropDown";
+import {BASE_URL} from "../../../appConstants"
 class DropDown extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +20,7 @@ class DropDown extends Component {
   {
     axios
     .get(
-      'http://127.0.0.1:8000/get-all-created-products'
+      BASE_URL+'/get-all-created-products'
     )
     .then((res) => {
       this.setState({ times: res.data });

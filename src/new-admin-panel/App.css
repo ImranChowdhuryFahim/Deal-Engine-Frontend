@@ -95,6 +95,10 @@
   display: block!important;
 }
 
+.loaded_component{
+  height: 95vh;
+  overflow-y: auto;
+}
 
 
 @media screen and (max-width:1020px)

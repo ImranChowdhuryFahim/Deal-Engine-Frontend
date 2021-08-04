@@ -3,8 +3,8 @@ import "./Card.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-import { ContactPhoneSharp } from "@material-ui/icons";
 import Drop from "./DropDown";
+import {BASE_URL} from "../../../appConstants"
 
 class Card extends Component {
   state = {
@@ -22,7 +22,7 @@ class Card extends Component {
   handleTrack() {
     this.setState({ loading: true });
     axios
-      .post("http://127.0.0.1:8000/track-product", {
+      .post(BASE_URL+"/track-product", {
         productName: this.props.productName,
         productLink: this.props.productLink,
         productPrice: this.props.productPrice.replaceAll("$",""),

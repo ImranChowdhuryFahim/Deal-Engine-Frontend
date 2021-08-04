@@ -1,20 +1,25 @@
 import React from "react";
 import "./App.css";
-import Colors from "./components/Colors";
 import Chart from "./Chart";
 import { withRouter } from "react-router";
+import Card from '../TrackedProducts/Card'
+import myData from "./data.json";
 
 class App extends React.Component {
+
   componentDidMount() {
     if (this.props.location.state != null) {
       console.log(this.props.location.state.productLink);
     }
   }
   state = {
+    loading: false,
+      data: myData,
+      keyword: "",
     products: [
       {
         _id: "1",
-        title: "Apple iPhone 12 Pro Max 256GB (Pacific Blue)",
+        title: "Apple iPhone 12 Pro Max",
         src: [
           "https://cdn.shopify.com/s/files/1/0024/9803/5810/products/481797-Product-0-I-637382712841613388_ff93a2ed-f60e-4ff7-af0d-c62b47bf8607_300x300.jpg?v=1612750122",
         ],
@@ -32,51 +37,87 @@ class App extends React.Component {
 
   myRef = React.createRef();
 
-  // handleTab = (index) => {
-  //   this.setState({ index: index });
-  //   const images = this.myRef.current.children;
-  //   for (let i = 0; i < images.length; i++) {
-  //     images[i].className = images[i].className.replace("active", "");
-  //   }
-  //   images[index].className = "active";
-  // };
-
-  // componentDidMount() {
-  //   const { index } = this.state;
-  //   this.myRef.current.children[index].className = "active";
-  // }
+  
+  
+  
 
   render() {
     const { products, index } = this.state;
+    let color =[ "rgba(75,192,192,1)", "#742774", "#FFFF00","#FFFF99","#FF9900"]
+    const data = {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      datasets: [
+        {
+          label: "Amazon",
+          data: [33, 53, 85, 41, 44, 65],
+          fill: false,
+          backgroundColor: "rgba(75,192,192,0.2)",
+          borderColor: "rgba(75,192,192,1)",
+        },
+        {
+          label: "Ebay",
+          data: [33, 25, 35, 51, 54, 76],
+          fill: false,
+          borderColor: "#742774",
+        },
+        {
+          label: "Flipcart",
+          data: [20, 25, 19, 51, 4, 96],
+          fill: false,
+          borderColor: "#FFFF00",
+        },
+        
+        {
+          label: "Jbhifi",
+          data: [20, 25, 29, 21, 43, 36],
+          fill: false,
+          borderColor: "#FF9900",
+        },
+      ],
+    };
     return (
       <div className="app">
         {products.map((item) => (
           <div className="details" key={item._id}>
-            <div className="big-img">
-              <img src={item.src[index]} alt="" />
-            </div>
-
             <div className="box">
               <div className="row">
                 <h2>{item.title}</h2>
-                <span>${item.price}</span>
               </div>
-              <Colors colors={item.colors} />
 
-              <p>{item.description}</p>
-              <p>{item.content}</p>
-
-              {/* <DetailsThumb
-                images={item.src}
-                tab={this.handleTab}
-                myRef={this.myRef}
-              /> */}
-              <button className="cart">Add</button>
-              <button className="cart2">Delete</button>
             </div>
-            <Chart />
+            <Chart data={data} />
           </div>
         ))}
+                <div className="productCardContainer">
+          {!this.state.loading && this.state.data != null ? (
+            this.state.data
+              .filter(
+                (val) =>
+                  val.price != null &&
+                  val.title
+                    .toLowerCase()
+                    .includes(this.state.keyword.toLowerCase())
+              )
+              .sort((a, b) => b.price - a.price)
+              .map((prod, i) => {
+                return (
+                  <Card
+                    key={i}
+                    productLink={prod.href}
+                    productName={prod.title}
+                    productPrice={"$" + prod.price}
+                    productImage={prod.image}
+                    websiteName={prod.websiteName}
+                    color = {color[i%4]}
+                  ></Card>
+                );
+              })
+          ) : this.state.loading ? (
+            <div>loading....</div>
+          ) : (
+            <div></div>
+          )}
+        </div>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import "./App.css";
+import {BASE_URL} from "../../../appConstants"
 
 class App extends Component {
 
@@ -8,7 +9,7 @@ class App extends Component {
   {
     
     axios
-      .post("http://127.0.0.1:8000/create-product", {
+      .post(BASE_URL+"/create-product", {
         productName: this.product.value,
       })
       .then((res) => {

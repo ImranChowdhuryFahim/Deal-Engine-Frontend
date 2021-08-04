@@ -5,13 +5,13 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { ContactPhoneSharp } from "@material-ui/icons";
 import { withRouter } from "react-router";
+import { AutoComplete } from "antd";
 // import { NavLink } from "react-router-dom";
 
 class Card extends Component {
   state = {
     loading: false,
   };
-
 
   render() {
     return (
@@ -26,9 +26,21 @@ class Card extends Component {
           <p>Price: {this.props.productPrice}</p>
           <p>Website Name: {this.props.websiteName}</p>
         </div>
-        <div>
+        <div
+            style={{
+              height: "20px",
+              width: "20px",
+              backgroundColor: `${this.props.color}`,
+              borderRadius: "50%",
+              marginBottom:'50px',
+              textAlign:'center',
+              display: "flex",
+              margin: '0 auto',
+            }}
+          ></div>
+        <div style={{display: 'flex', flexDirection:'column'}}>
 
-        <button
+          <button
             style={{
               marginRight: "20px",
               backgroundColor: "#4CAF50",
@@ -40,13 +52,12 @@ class Card extends Component {
               display: "flex",
             }}
             onClick={(e) => {
-
-               this.props.history.push(
-                  '/admin/product_details',{productLink: this.props.productLink}
-                );
-              } }
+              this.props.history.push("/admin/product_details", {
+                productLink: this.props.productLink,
+              });
+            }}
           >
-            View Details
+            Add
           </button>
         </div>
       </div>

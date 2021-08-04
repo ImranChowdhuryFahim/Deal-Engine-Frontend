@@ -3,6 +3,7 @@ import myData from "./data.json";
 import "./App.css";
 import Card from "./Card";
 import axios from "axios";
+import {BASE_URL} from "../../../appConstants"
 // import myData from "./data.json";
 
 class App extends Component {
@@ -20,16 +21,31 @@ class App extends Component {
     if (event.key === "Enter") {
       this.setState({ loading: true });
       this.setState({ keyword: this.title.value });
-      axios
-        .get(
-          `http://127.0.0.1:8000/deal-search/aus?keyword=${this.title.value}`
-        )
-        .then((res) => {
-          this.setState({ data: res.data.totalProductlist });
-          this.setState({ loading: false });
-        }).catch((err) => {
-          console.log(err)
+
+      const websiteNameList = ["amazon-au","bigw","jbhifi","banggood","ebay"]
+      const promiseList =[];
+      const productList = [];
+      for(let i of websiteNameList)
+      {
+        promiseList.push(axios.get(`${BASE_URL}/deal-search/aus?keyword=${this.title.value}&websiteName=${i}`))
+      }
+
+      Promise.all(promiseList).then((allProductLists)=>{
+        
+
+        allProductLists.map((list)=>{
+          console.log(list)
+          productList.push(...list.data.totalProductlist)
         })
+        console.log(productList)
+        this.setState({ data: productList });
+        
+        this.setState({ loading: false });
+      }).catch((err)=>{
+        this.setState({ loading: false });
+        console.log(err)
+      })
+
     }
   }
 
@@ -52,10 +68,7 @@ class App extends Component {
             this.state.data
               .filter(
                 (val) =>
-                  val.price != null &&
-                  val.title
-                    .toLowerCase()
-                    .includes(this.state.keyword.toLowerCase())
+                  val.price != null 
               )
               .sort((a, b) => b.price - a.price)
               .map((prod, i) => {

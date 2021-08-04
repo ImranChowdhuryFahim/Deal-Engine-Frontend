@@ -2,18 +2,7 @@ import React, { Component } from "react";
 import "./Sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTachometerAlt,
-  faBookReader,
-  faChalkboardTeacher,
-  faNewspaper,
-  faBlog,
-  faCalendar,
-  faUserTag,
-  faBookmark,
-  faMailBulk,
-  faBullhorn,
   faSearch,
-  faServer,
   faPlusSquare,
   faList,
   faAddressBook,
@@ -55,12 +44,6 @@ class Sidebar extends Component {
               <NavLink to="/admin/product_details" activeStyle={activeStyle}>
                 <FontAwesomeIcon icon={faAddressBook}></FontAwesomeIcon> Product
                 Details{" "}
-              </NavLink>{" "}
-            </li>
-            <li>
-              {" "}
-              <NavLink to="/admin/mailbox" activeStyle={activeStyle}>
-                <FontAwesomeIcon icon={faMailBulk}></FontAwesomeIcon> MailBox{" "}
               </NavLink>{" "}
             </li>
             <li>
