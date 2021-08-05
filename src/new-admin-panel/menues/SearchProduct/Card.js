@@ -3,13 +3,30 @@ import "./Card.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-import Drop from "./DropDown";
-import {BASE_URL} from "../../../appConstants"
+import { BASE_URL } from "../../../appConstants";
 
 class Card extends Component {
-  state = {
-    loading: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      tags: ["select tag"],
+      selectedTag: "select tag",
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    axios
+      .get(BASE_URL + "/get-all-created-products")
+      .then((res) => {
+        const newList = this.state.tags.concat(res.data);
+        this.setState({ tags: newList });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   currentDate() {
     let d = new Date();
@@ -19,25 +36,40 @@ class Card extends Component {
     return `${da}-${mo}-${ye}`;
   }
 
+  handleChange(e) {
+    console.log(e.target.value);
+    this.setState({ selectedTag: e.target.value });
+  }
   handleTrack() {
+
+    if(this.state.selectedTag === 'select tag')
+    {
+      alert("please select a tag");
+      return
+    }
     this.setState({ loading: true });
     axios
-      .post(BASE_URL+"/track-product", {
+      .post(BASE_URL + "/track-product", {
         productName: this.props.productName,
         productLink: this.props.productLink,
-        productPrice: this.props.productPrice.replaceAll("$",""),
+        productPrice: parseFloat(this.props.productPrice.replaceAll("$", "")),
         productImage: this.props.productImage,
         websiteName: this.props.websiteName,
-        date: this.currentDate(),
+        productTag: this.state.selectedTag,
+        // date: this.currentDate(),
       })
       .then((res) => {
-        window.alert("successfully added to tracking")
+        window.alert("successfully added to tracking");
+      })
+      .catch(({response})=>{
+        window.alert(response.data.message)
       });
     setTimeout(() => {
       this.setState({ loading: false });
     }, 2000);
   }
   render() {
+    const tags = this.state.tags;
     return (
       <div className="cardContainer">
         <div className="ProductImage">
@@ -73,7 +105,15 @@ class Card extends Component {
             {this.state.loading && <span>Please wait</span>}
             {!this.state.loading && <span>Track</span>}
           </button>{" "}
-          <Drop />
+          <select
+            onChange={this.handleChange}
+            value={this.state.selectedTag}
+            className="dropDown"
+          >
+            {tags.map((tag) => {
+              return <option value={tag}> {tag} </option>;
+            })}
+          </select>
         </div>
       </div>
     );

@@ -13,18 +13,18 @@ class Card extends Component {
     loading: false,
   };
 
-  handleDelete() {
-    axios
-      .put(BASE_URL + "/delete-tracked-product", {
-        productLink: this.props.productLink,
-      })
-      .then((result) => {
-        this.props.handleDelete();
+  handleAdd() {
+    // axios
+    //   .put(BASE_URL + "/delete-tracked-product", {
+    //     productLink: this.props.productLink,
+    //   })
+    //   .then((result) => {
+    //     this.props.handleDelete();
         
-      })
-      .catch(({ response }) => {
-        window.alert(response.data.message);
-      });
+    //   })
+    //   .catch(({ response }) => {
+    //     window.alert(response.data.message);
+    //   });
   }
 
   render() {
@@ -65,9 +65,9 @@ class Card extends Component {
               fontWeight: "bold",
               display: "flex",
             }}
-            onClick={this.handleDelete.bind(this)}
+            onClick={this.handleAdd.bind(this)}
           >
-            Delete
+           Add
           </button>
         </div>
       </div>

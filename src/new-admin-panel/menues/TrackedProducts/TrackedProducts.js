@@ -1,51 +1,87 @@
-import React, { Component } from 'react'
-import './TrackedProducts.css'
+import React, { Component } from "react";
+import "./TrackedProducts.css";
 import Card from "./Card.js";
 import axios from "axios";
+import { BASE_URL } from "../../../appConstants";
 
+class TrackedProducts extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: false,
+      data: null,
+      allProducts: null,
+      tags: [],
+      tags: ["select tag"],
+      selectedTag: "select tag",
+    };
+  }
 
-class TrackedProducts extends Component{
-    constructor() {
-        super();
-        this.state = {
-          loading: false,
-          data: null,
-          
-        };
-      }
+  componentDidMount() {
+    this.setState({ loading: true });
+    axios.get(`${BASE_URL}/get-all-tracked-products`).then((res) => {
+      console.log(res.data);
+      this.setState({ allProducts: res.data });
+      this.setState({ data: res.data });
+      this.setState({ loading: false });
+    });
+    axios
+      .get(BASE_URL + "/get-all-created-products")
+      .then((res) => {
+        const newList = this.state.tags.concat(res.data);
+        this.setState({ tags: newList });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
-    componentDidMount()
-    {
-        this.setState({ loading: true });
-      axios
-        .get(
-          `http://127.0.0.1:8000/get-all-tracked-products`
-        )
-        .then((res) => {
-            console.log(res.data)
-          this.setState({ data: res.data });
-          this.setState({ loading: false });
-        });
+  handleclick() {
+    if (this.title.value) {
+      const filterData = this.state.allProducts.filter((item) =>
+        item.productName.toLowerCase().includes(this.title.value.toLowerCase())
+      );
+      this.setState({ data: filterData });
+    } else {
+      this.setState({ data: this.state.allProducts });
     }
+  }
+  handleChange(e) {
+    this.setState({ selectedTag: e.target.value });
+    if (e.target.value === "select tag") {
+      this.setState({ data: this.state.allProducts });
+    } else {
+      const filterData = this.state.allProducts.filter(
+        (item) => item.productTag.toLowerCase() === e.target.value.toLowerCase()
+      );
+      this.setState({ data: filterData });
+    }
+  }
 
-    handleclick(event) {
-        if (event.key === "Enter") {
-        //   this.setState({ loading: true });
-        //   this.setState({ keyword: this.title.value });
-        //   axios
-        //     .get(
-        //       `http://127.0.0.1:8000/deal-search/aus?keyword=${this.title.value}`
-        //     )
-        //     .then((res) => {
-        //       this.setState({ data: res.data.totalProductlist });
-        //       this.setState({ loading: false });
-        //     });
-        }
-      }
-    render()
-    {
-        return(
-            <div>
+  handleDelete() {
+    this.setState({ loading: true });
+    axios.get(`${BASE_URL}/get-all-tracked-products`).then((res) => {
+      console.log(res.data);
+      this.setState({ allProducts: res.data });
+      this.setState({ data: res.data });
+      this.setState({ loading: false });
+    });
+    axios
+      .get(BASE_URL + "/get-all-created-products")
+      .then((res) => {
+        const newList = this.state.tags.concat(res.data);
+        this.setState({ tags: newList });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    window.alert("successfully deleted the product");
+  }
+
+  render() {
+    const tags = this.state.tags;
+    return (
+      <div>
         <div className="searchBarContainer">
           <input
             className="searchBar"
@@ -54,9 +90,29 @@ class TrackedProducts extends Component{
             height="500px"
             ref={(c) => (this.title = c)}
             name="title"
-            onKeyDown={this.handleclick.bind(this)}
+            onChange={this.handleclick.bind(this)}
           ></input>
         </div>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <h4 style={{ marginRight: "10px" }}>Filter By Tag</h4>
+          <select
+            onChange={this.handleChange.bind(this)}
+            value={this.state.selectedTag}
+            className="dropDown"
+          >
+            {tags.map((tag) => {
+              return <option value={tag}> {tag} </option>;
+            })}
+          </select>
+        </div>
+
         <div className="productCardContainer">
           {!this.state.loading && this.state.data != null ? (
             this.state.data
@@ -70,6 +126,8 @@ class TrackedProducts extends Component{
                     productPrice={"$" + prod.productPrice}
                     productImage={prod.productImage}
                     websiteName={prod.websiteName}
+                    productTag={prod.productTag}
+                    handleDelete={this.handleDelete.bind(this)}
                   ></Card>
                 );
               })
@@ -80,8 +138,8 @@ class TrackedProducts extends Component{
           )}
         </div>
       </div>
-        )
-    }
+    );
+  }
 }
 
-export default TrackedProducts
+export default TrackedProducts;
