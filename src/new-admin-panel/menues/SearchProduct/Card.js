@@ -71,7 +71,7 @@ class Card extends Component {
   render() {
     const tags = this.state.tags;
     return (
-      <div className="cardContainer">
+      <div className="cardContainer1">
         <div className="ProductImage">
           <a href={this.props.productLink}>
             <img src={this.props.productImage} alt="couldn' load" />

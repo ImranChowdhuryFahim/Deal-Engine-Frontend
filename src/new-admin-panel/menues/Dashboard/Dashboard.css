@@ -1,0 +1,28 @@
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+}
+
+.dashboardContent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin:20px;
+    margin-top: 0px;
+}
+
+
+@media screen and (max-width: 768px)
+{
+    .cards{
+        margin-left: -20px;
+       justify-content: center;
+       flex-wrap: wrap;
+       
+    }
+    
+}
+

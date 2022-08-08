@@ -6,16 +6,16 @@ p {
   font-size: medium;
 }
 
-img {
+/* img {
   height: 150px;
   width: 150px;
-}
+} */
 
 .ProductDetails {
   padding-left: 10px;
 }
 
-.cardContainer {
+.cardContainer2 {
   width: 50%;
   height: 160px;
   display: flex;

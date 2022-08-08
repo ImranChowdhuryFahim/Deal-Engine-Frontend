@@ -1,0 +1,42 @@
+.TableView {
+  margin: 5px;
+  width: 100%;
+  height: 68vh;
+  overflow-x: auto;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+table {
+  width: 100%;
+}
+thead{
+    background-color: blueviolet;
+    color: white;
+}
+tbody{
+    padding-top: 50px;
+}
+td,
+th {
+  padding: 10px;
+  border-bottom: 1px solid black;
+  text-align: left;
+  font-size: 14px;
+}
+.size {
+  width: 50px !important;
+  height: 50px !important;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  td,
+  th {
+    padding: 5px;
+    font-size: 8px;
+  }
+  .TableView{
+    margin: 0px;
+    margin-left: -12px;
+    
+  }
+}

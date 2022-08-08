@@ -25,6 +25,7 @@ import {
   faBullhorn,
   faTimes,
   faSearch,
+  faPlusSquare,
   faList,
   faAddressBook,
 } from "@fortawesome/free-solid-svg-icons";
@@ -140,20 +141,71 @@ class App extends Component {
                       </li>
                       <li>
                         {" "}
-                        <NavLink to="/admin/tracked_products" activeStyle={activeStyle}>
-                          <FontAwesomeIcon
-                            icon={faList}
-                          ></FontAwesomeIcon>{" "}
-                          Tracked Products{" "}
+                        <NavLink
+                          to="/admin/products"
+                          activeStyle={activeStyle}
+                        >
+                          <FontAwesomeIcon icon={faList}></FontAwesomeIcon>{" "}
+                           Products{" "}
                         </NavLink>{" "}
                       </li>
                       <li>
                         {" "}
-                        <NavLink to="/admin/product_details" activeStyle={activeStyle}>
+                        <NavLink
+                          to="/admin/product_details"
+                          activeStyle={activeStyle}
+                        >
                           <FontAwesomeIcon
                             icon={faAddressBook}
                           ></FontAwesomeIcon>{" "}
                           Product Details{" "}
+                        </NavLink>{" "}
+                      </li>
+                      <li>
+                        {" "}
+                        <NavLink
+                          to="/admin/createproduct"
+                          activeStyle={activeStyle}
+                        >
+                          <FontAwesomeIcon
+                            icon={faPlusSquare}
+                          ></FontAwesomeIcon>{" "}
+                          Create Product{" "}
+                        </NavLink>{" "}
+                      </li>
+                      <li>
+                        {" "}
+                        <NavLink
+                          to="/admin/dashboard"
+                          activeStyle={activeStyle}
+                        >
+                          <FontAwesomeIcon
+                            icon={faTachometerAlt}
+                          ></FontAwesomeIcon>{" "}
+                          Dashboard
+                        </NavLink>{" "}
+                      </li>
+                      <li>
+                        {" "}
+                        <NavLink
+                          to="/admin/add-product"
+                          activeStyle={activeStyle}
+                        >
+                          <FontAwesomeIcon
+                            icon={faPlusSquare}
+                          ></FontAwesomeIcon>{" "}
+                          Add Product{" "}
+                        </NavLink>{" "}
+                      </li>
+
+                      <li>
+                        {" "}
+                        <NavLink
+                          to="/admin/access-role"
+                          activeStyle={activeStyle}
+                        >
+                          <FontAwesomeIcon icon={faUserTag}></FontAwesomeIcon>{" "}
+                          Access Role{" "}
                         </NavLink>{" "}
                       </li>
                       <li>

@@ -13,12 +13,13 @@
   }
   
   .productCardContainer {
-    margin: 10px;
-    height: 80vh;
+    margin: 20px auto;
+    width: 80%;
     display: flex;
-    align-items: center;
-    overflow-y: auto;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-radius: 5px;
+    flex-direction: row;
   }
   
   @media screen and (max-width: 768px) {

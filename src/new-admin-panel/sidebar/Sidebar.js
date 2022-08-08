@@ -6,6 +6,16 @@ import {
   faPlusSquare,
   faList,
   faAddressBook,
+  faTachometerAlt,
+  faBookReader,
+  faChalkboardTeacher,
+  faNewspaper,
+  faBlog,
+  faCalendar,
+  faUserTag,
+  faBookmark,
+  faMailBulk,
+  faBullhorn,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 
@@ -34,9 +44,9 @@ class Sidebar extends Component {
             </li>
             <li>
               {" "}
-              <NavLink to="/admin/tracked_products" activeStyle={activeStyle}>
-                <FontAwesomeIcon icon={faList}></FontAwesomeIcon> Tracked
-                Products{" "}
+              <NavLink to="/admin/products" activeStyle={activeStyle}>
+                <FontAwesomeIcon icon={faList}></FontAwesomeIcon>{" "}
+                 Products{" "}
               </NavLink>{" "}
             </li>
             <li>
@@ -52,6 +62,34 @@ class Sidebar extends Component {
                 <FontAwesomeIcon icon={faPlusSquare}></FontAwesomeIcon> Create
                 Product{" "}
               </NavLink>{" "}
+            </li>
+            <li>
+              {' '}
+              <NavLink to="/admin/dashboard" activeStyle={activeStyle}>
+                <FontAwesomeIcon icon={faTachometerAlt}></FontAwesomeIcon>{' '}
+                Dashboard
+              </NavLink>{' '}
+            </li>
+            <li>
+              {' '}
+              <NavLink to="/admin/add-product" activeStyle={activeStyle}>
+                <FontAwesomeIcon icon={faPlusSquare}></FontAwesomeIcon>{' '}
+                Add Product{' '}
+              </NavLink>{' '}
+            </li>
+
+  
+            <li>
+              {' '}
+              <NavLink to="/admin/access-role" activeStyle={activeStyle}>
+                <FontAwesomeIcon icon={faUserTag}></FontAwesomeIcon> Access Role{' '}
+              </NavLink>{' '}
+            </li>
+            <li>
+              {' '}
+              <NavLink to="/admin/mailbox" activeStyle={activeStyle}>
+                <FontAwesomeIcon icon={faMailBulk}></FontAwesomeIcon> MailBox{' '}
+              </NavLink>{' '}
             </li>
           </ul>
         </div>

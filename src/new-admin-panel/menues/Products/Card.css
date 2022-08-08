@@ -1,0 +1,46 @@
+h1 {
+  color: blue;
+}
+
+p {
+  font-size: medium;
+}
+
+/* img {
+  height: 150px;
+  width: 150px;
+} */
+
+.ProductDetails {
+  padding-left: 10px;
+}
+
+.cardContainer {
+  width: 300px;
+  height: 400px;
+  padding: 10px;
+  border: 1px solid #eee;
+  margin:40px 20px;
+  background-color: #ccc;
+}
+.ProductImage{
+  width: 100%;
+  max-width: 300px;
+  min-height: 200px;
+  display: block;
+  object-fit: cover;
+
+}
+.ProductName{
+  margin: 10px 0px;
+}
+.ProductDescription{
+  margin: 10px 0px;
+  font-size: 18px;
+}
+#dropdown{
+    
+    
+    width: 50%;
+
+}

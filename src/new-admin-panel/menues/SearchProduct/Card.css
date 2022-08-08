@@ -6,25 +6,24 @@ p {
   font-size: medium;
 }
 
-img {
+/* img {
   height: 150px;
   width: 150px;
-}
+} */
 
 .ProductDetails {
   padding-left: 10px;
 }
 
-.cardContainer {
+.cardContainer1 {
   width: 50%;
   height: 160px;
-  display: flex;
   border: 1px solid #eee;
   box-shadow: 0 2px 2px #ccc;
   margin: 20px;
-  align-items: center;
-  justify-content: space-between;
+
 }
+
 
 @media screen and (max-width:768px)
 {

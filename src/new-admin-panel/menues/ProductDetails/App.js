@@ -51,8 +51,8 @@ class App extends React.Component {
       },
     ],
     index: 0,
-    selectedTag: "select tag",
-    tags: ["select tag"],
+    selectedTag: "select tag to filter",
+    tags: ["select tag to filter"],
   };
 
   myRef = React.createRef();
@@ -68,7 +68,7 @@ class App extends React.Component {
   async handleChange(e) {
     this.setState({ selectedTag: e.target.value });
 
-    if (e.target.value === "select tag") return;
+    if (e.target.value === "select tag to filter") return;
 
     const result = await axios.get(
       BASE_URL + `/get-chart-data/${e.target.value}`
@@ -157,11 +157,11 @@ class App extends React.Component {
             justifyContent: "center",
           }}
         >
-          <h4 style={{ marginRight: "10px" }}>Select A Tag</h4>
           <select
             onChange={this.handleChange.bind(this)}
             value={this.state.selectedTag}
             className="dropDown"
+            id="dropdown"
           >
             {tags.map((tag) => {
               return <option value={tag}> {tag} </option>;

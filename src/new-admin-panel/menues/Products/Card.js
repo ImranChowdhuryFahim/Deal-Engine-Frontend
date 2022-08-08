@@ -20,7 +20,6 @@ class Card extends Component {
       })
       .then((result) => {
         this.props.handleDelete();
-        
       })
       .catch(({ response }) => {
         window.alert(response.data.message);
@@ -30,17 +29,28 @@ class Card extends Component {
   render() {
     return (
       <div className="cardContainer">
-        <div className="ProductImage">
+        <div>
           <a href={this.props.productLink}>
-            <img src={this.props.productImage} alt="couldn' load" />
+            <img
+              className="ProductImage"
+              src={this.props.productImage}
+              alt="couldn' load"
+            />
           </a>
         </div>
-        <div className="ProductDetails">
-          <h5>{this.props.productName}</h5>
-          <p>Price: {this.props.productPrice}</p>
-          <p>Website Name: {this.props.websiteName}</p>
-          <p>Product Tag: {this.props.productTag}</p>
+
+        <div className="ProductName">
+          <h3>{this.props.productName}</h3>
         </div>
+
+        <div className="ProductDescription">
+          {this.props.productDescription}
+        </div>
+
+        <div className="WebsiteName">{this.props.websiteName}</div>
+        {/* <p>Website Name: {this.props.websiteName}</p>
+          <p>Product Tag: {this.props.productTag}</p> */}
+
         <div
           style={{
             height: "20px",
@@ -64,10 +74,26 @@ class Card extends Component {
               fontSize: "14px",
               fontWeight: "bold",
               display: "flex",
+              
             }}
             onClick={this.handleDelete.bind(this)}
           >
-            Delete
+            Edit
+          </button>
+          <button
+            style={{
+              marginRight: "20px",
+              backgroundColor: "#af4c4f",
+              border: "none",
+              color: "white",
+              padding: "6px 20px",
+              fontSize: "14px",
+              fontWeight: "bold",
+              display: "flex",
+              marginTop: '10px'
+            }}
+          >
+           Delete
           </button>
         </div>
       </div>

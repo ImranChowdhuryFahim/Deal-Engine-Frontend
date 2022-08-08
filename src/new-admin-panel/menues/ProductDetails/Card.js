@@ -29,7 +29,7 @@ class Card extends Component {
 
   render() {
     return (
-      <div className="cardContainer">
+      <div className="cardContainer2">
         <div className="ProductImage">
           <a href={this.props.productLink}>
             <img src={this.props.productImage} alt="couldn' load" />
